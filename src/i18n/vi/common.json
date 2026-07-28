@@ -1,4 +1,25 @@
 {
   "hello": "Xin chào!",
-  "notFound": "Không tìm thấy {field}"
+  "notFound": "Không tìm thấy {field}",
+  "errors": {
+    "invalid_credentials": "Email hoặc mật khẩu không đúng",
+    "unauthorized": "Không có quyền truy cập",
+    "email_already_exists": "Email đã được sử dụng",
+    "invalid_token": "Token không hợp lệ",
+    "token_expired": "Token đã hết hạn",
+    "account_not_activated": "Tài khoản chưa được kích hoạt",
+    "user_not_found": "Không tìm thấy người dùng",
+    "registration_failed": "Đăng ký thất bại, vui lòng thử lại",
+    "invalid_refresh_token": "Refresh token không hợp lệ hoặc đã hết hạn",
+    "invalid_reset_token": "Link đặt lại mật khẩu không hợp lệ hoặc đã hết hạn"
+  },
+  "success": {
+    "register": "Đăng ký thành công. Vui lòng kiểm tra email!",
+    "activate": "Kích hoạt tài khoản thành công",
+    "login": "Đăng nhập thành công",
+    "logout": "Đăng xuất thành công",
+    "token_refreshed": "Làm mới token thành công",
+    "forgot_password_generic": "Nếu email tồn tại trong hệ thống, bạn sẽ nhận được email hướng dẫn đặt lại mật khẩu",
+    "reset_password": "Đặt lại mật khẩu thành công. Vui lòng đăng nhập lại!"
+  }
 }

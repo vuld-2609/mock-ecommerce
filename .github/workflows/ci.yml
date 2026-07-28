@@ -39,6 +39,17 @@ jobs:
       REDIS_HOST: localhost
       REDIS_PORT: 6379
       PORT: 3000
+      SECRET_KEY: test-secret-key
+      JWT_EXPIRES_IN: 1d
+      JWT_REFRESH_SECRET: test-refresh-secret
+      JWT_REFRESH_EXPIRES_IN: 7d
+      APP_URL: http://localhost:3000
+      APP_NAME: Mock Ecommerce
+      MAIL_HOST: smtp.example.com
+      MAIL_PORT: 587
+      MAIL_USER: test@example.com
+      MAIL_PASSWORD: test-password
+      MAIL_FROM: "No Reply <test@example.com>"
 
     steps:
       - uses: actions/checkout@v4

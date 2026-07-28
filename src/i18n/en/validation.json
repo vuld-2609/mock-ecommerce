@@ -1,0 +1,10 @@
+{
+  "email_invalid": "Email is invalid",
+  "email_required": "Email should not be empty",
+  "password_required": "Password should not be empty",
+  "password_min_length": "Password must be at least {min} characters",
+  "full_name_required": "Full name should not be empty",
+  "token_required": "Token should not be empty",
+  "refresh_token_required": "Refresh token should not be empty",
+  "new_password_min_length": "New password must be at least {min} characters"
+}

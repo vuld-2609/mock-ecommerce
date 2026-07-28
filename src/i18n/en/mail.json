@@ -1,0 +1,19 @@
+{
+  "greeting": "Hi there,",
+  "footer": "If you did not request this, please ignore this email - your account is still safe.",
+  "footer_copyright": "© {year} {appName}. All rights reserved.",
+  "activation": {
+    "subject": "Activate your {appName} account",
+    "heading": "Activate your account",
+    "body": "Thanks for signing up for {appName}. Please click the button below to activate your account and get started.",
+    "button": "Activate account",
+    "expiry": "This link will expire in 1 hour."
+  },
+  "reset_password": {
+    "subject": "Password reset request",
+    "heading": "Reset your password",
+    "body": "We received a request to reset the password for your {appName} account. Click the button below to set a new password.",
+    "button": "Reset password",
+    "expiry": "This link will expire in 15 minutes."
+  }
+}
