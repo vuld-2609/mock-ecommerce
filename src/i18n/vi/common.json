@@ -4,6 +4,7 @@
   "errors": {
     "invalid_credentials": "Email hoặc mật khẩu không đúng",
     "unauthorized": "Không có quyền truy cập",
+    "forbidden": "Bạn không có quyền thực hiện thao tác này",
     "email_already_exists": "Email đã được sử dụng",
     "invalid_token": "Token không hợp lệ",
     "token_expired": "Token đã hết hạn",
@@ -14,7 +15,9 @@
     "invalid_reset_token": "Link đặt lại mật khẩu không hợp lệ hoặc đã hết hạn",
     "invalid_image_type": "Chỉ chấp nhận file ảnh (jpg, jpeg, png, gif, webp)",
     "invalid_old_password": "Mật khẩu cũ không đúng",
-    "same_password": "Mật khẩu mới phải khác mật khẩu cũ"
+    "same_password": "Mật khẩu mới phải khác mật khẩu cũ",
+    "category_not_found": "Không tìm thấy danh mục",
+    "category_name_exists": "Tên danh mục đã tồn tại"
   },
   "success": {
     "register": "Đăng ký thành công. Vui lòng kiểm tra email!",
@@ -26,6 +29,10 @@
     "reset_password": "Đặt lại mật khẩu thành công. Vui lòng đăng nhập lại!",
     "get_profile": "Lấy thông tin cá nhân thành công",
     "update_profile": "Cập nhật thông tin cá nhân thành công",
-    "change_password": "Đổi mật khẩu thành công"
+    "change_password": "Đổi mật khẩu thành công",
+    "get_categories": "Lấy danh sách danh mục thành công",
+    "create_category": "Tạo danh mục thành công",
+    "update_category": "Cập nhật danh mục thành công",
+    "delete_category": "Xoá danh mục thành công"
   }
 }

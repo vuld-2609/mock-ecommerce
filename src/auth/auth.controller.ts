@@ -3,7 +3,7 @@ import { ApiBody, ApiTags } from '@nestjs/swagger';
 
 import { JwtAuthGuard } from '@/guards/jwt-auth.guard';
 import { LocalAuthGuard } from '@/guards/local-auth.guard';
-import { CurrentUser } from '@/passport/current-user.decorator';
+import { CurrentUser } from '@/common/decorators/current-user.decorator';
 
 import { AuthService } from './auth.service';
 import { ForgotPasswordDto } from './dto/forgot-password-dto';

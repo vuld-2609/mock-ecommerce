@@ -5,9 +5,8 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { AcceptLanguageResolver, I18nModule, QueryResolver } from 'nestjs-i18n';
 import * as path from 'path';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+import { CategoriesModule } from './categories/categories.module';
 import { validateEnv } from './config/env.validation';
 import { MailModule } from './mail/mail.module';
 import { PrismaModule } from './prisma/prisma.module';
@@ -47,8 +46,7 @@ import { RedisModule } from './redis/redis.module';
     AuthModule,
     MailModule,
     ProfileModule,
+    CategoriesModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
