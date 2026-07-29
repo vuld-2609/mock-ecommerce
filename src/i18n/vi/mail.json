@@ -1,0 +1,19 @@
+{
+  "greeting": "Xin chào,",
+  "footer": "Nếu bạn không thực hiện yêu cầu này, vui lòng bỏ qua email này - tài khoản của bạn vẫn an toàn.",
+  "footer_copyright": "© {year} {appName}. Bảo lưu mọi quyền.",
+  "activation": {
+    "subject": "Kích hoạt tài khoản {appName}",
+    "heading": "Kích hoạt tài khoản của bạn",
+    "body": "Cảm ơn bạn đã đăng ký tài khoản tại {appName}. Vui lòng bấm nút bên dưới để kích hoạt tài khoản và bắt đầu sử dụng.",
+    "button": "Kích hoạt tài khoản",
+    "expiry": "Liên kết này sẽ hết hạn sau 1 giờ."
+  },
+  "reset_password": {
+    "subject": "Yêu cầu đặt lại mật khẩu",
+    "heading": "Đặt lại mật khẩu",
+    "body": "Chúng tôi nhận được yêu cầu đặt lại mật khẩu cho tài khoản {appName} của bạn. Bấm nút bên dưới để tạo mật khẩu mới.",
+    "button": "Đặt lại mật khẩu",
+    "expiry": "Liên kết này sẽ hết hạn sau 15 phút."
+  }
+}

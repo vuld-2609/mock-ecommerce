@@ -1,4 +1,25 @@
 {
   "hello": "Hello!",
-  "notFound": "{field} not found"
+  "notFound": "{field} not found",
+  "errors": {
+    "invalid_credentials": "Invalid email or password",
+    "unauthorized": "Unauthorized",
+    "email_already_exists": "Email already exists",
+    "invalid_token": "Invalid token",
+    "token_expired": "Token has expired",
+    "account_not_activated": "Account is not activated",
+    "user_not_found": "User not found",
+    "registration_failed": "Registration failed, please try again",
+    "invalid_refresh_token": "Refresh token is invalid or expired",
+    "invalid_reset_token": "Reset password link is invalid or expired"
+  },
+  "success": {
+    "register": "Registration successful. Please check your email!",
+    "activate": "Account activated successfully",
+    "login": "Login successful",
+    "logout": "Logout successful",
+    "token_refreshed": "Token refreshed successfully",
+    "forgot_password_generic": "If the email exists in our system, a password reset email has been sent",
+    "reset_password": "Password reset successful. Please login again!"
+  }
 }
