@@ -51,6 +51,20 @@ export class AuthService {
     return { accessToken, refreshToken };
   }
 
+  // Cấp cặp access/refresh token mới và lưu refresh token vào DB, dùng chung cho login/refresh/change-password
+  async issueTokenPair(userId: number, email: string) {
+    const tokens = await this.getTokens(userId, email);
+
+    await this.prismaService.refreshToken.create({
+      data: {
+        token: this.hashValue(tokens.refreshToken),
+        userId,
+      },
+    });
+
+    return tokens;
+  }
+
   async register(registerDto: RegisterDto) {
     try {
       const hashedPassword = await bcrypt.hash(registerDto.password, 10);
@@ -153,14 +167,7 @@ export class AuthService {
   }
 
   async login(user: SafeUser) {
-    const tokens = await this.getTokens(user.id, user.email);
-
-    await this.prismaService.refreshToken.create({
-      data: {
-        token: this.hashValue(tokens.refreshToken),
-        userId: user.id,
-      },
-    });
+    const tokens = await this.issueTokenPair(user.id, user.email);
 
     return { message: t('common.success.login'), data: tokens };
   }
@@ -186,13 +193,7 @@ export class AuthService {
 
     await this.prismaService.refreshToken.delete({ where: { id: stored.id } });
 
-    const tokens = await this.getTokens(payload.sub, payload.email);
-    await this.prismaService.refreshToken.create({
-      data: {
-        token: this.hashValue(tokens.refreshToken),
-        userId: payload.sub,
-      },
-    });
+    const tokens = await this.issueTokenPair(payload.sub, payload.email);
 
     return { message: t('common.success.token_refreshed'), data: tokens };
   }

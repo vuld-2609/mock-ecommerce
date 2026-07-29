@@ -4,7 +4,9 @@
   "password_required": "Mật khẩu không được để trống",
   "password_min_length": "Mật khẩu phải có ít nhất {min} ký tự",
   "full_name_required": "Họ tên không được để trống",
+  "full_name_invalid": "Họ tên không hợp lệ",
   "token_required": "Token không được để trống",
   "refresh_token_required": "Refresh token không được để trống",
-  "new_password_min_length": "Mật khẩu mới phải có ít nhất {min} ký tự"
+  "new_password_min_length": "Mật khẩu mới phải có ít nhất {min} ký tự",
+  "old_password_required": "Mật khẩu cũ không được để trống"
 }
