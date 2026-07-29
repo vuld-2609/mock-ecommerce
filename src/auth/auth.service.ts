@@ -184,14 +184,20 @@ export class AuthService {
       throw new UnauthorizedException(t('common.errors.invalid_refresh_token'));
     }
 
-    await this.prismaService.refreshToken.delete({ where: { id: stored.id } });
-
     const tokens = await this.getTokens(payload.sub, payload.email);
-    await this.prismaService.refreshToken.create({
-      data: {
-        token: this.hashValue(tokens.refreshToken),
-        userId: payload.sub,
-      },
+
+    await this.prismaService.$transaction(async (tx) => {
+      const { count } = await tx.refreshToken.deleteMany({ where: { id: stored.id } });
+      if (count === 0) {
+        throw new UnauthorizedException(t('common.errors.invalid_refresh_token'));
+      }
+
+      await tx.refreshToken.create({
+        data: {
+          token: this.hashValue(tokens.refreshToken),
+          userId: payload.sub,
+        },
+      });
     });
 
     return { message: t('common.success.token_refreshed'), data: tokens };
