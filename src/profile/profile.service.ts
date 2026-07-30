@@ -30,17 +30,30 @@ export class ProfileService {
   }
 
   async updateProfile(userId: number, dto: UpdateProfileDto, file?: Express.Multer.File) {
+    let cleanupOldAvatar: (() => void) | undefined;
+
     try {
-      const user = await this.prismaService.user.update({
-        where: { id: userId },
-        data: {
-          ...dto,
-        },
+      const { user, avatarFile } = await this.prismaService.$transaction(async (tx) => {
+        const user = await tx.user.update({
+          where: { id: userId },
+          data: {
+            ...dto,
+          },
+        });
+
+        if (!file) {
+          const avatarFile = await tx.file.findFirst({
+            where: { fileableType: 'USER', fileableId: userId },
+          });
+          return { user, avatarFile };
+        }
+
+        const replaced = await this.fileService.replaceFile(tx, file, 'USER', userId, 'avatar');
+        cleanupOldAvatar = replaced.cleanup;
+        return { user, avatarFile: replaced.file };
       });
 
-      const avatarFile = file
-        ? await this.fileService.replaceFile(file, 'USER', userId, 'avatar')
-        : await this.fileService.getFile('USER', userId);
+      cleanupOldAvatar?.();
 
       return {
         message: t('common.success.update_profile'),
