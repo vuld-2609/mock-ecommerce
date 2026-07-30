@@ -11,9 +11,9 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiBody, ApiConsumes } from '@nestjs/swagger';
 
 import type { SafeUser } from '@/auth/types/authenticated-user.type';
+import { CurrentUser } from '@/common/decorators/current-user.decorator';
 import { multerOptions } from '@/config/multer.config';
 import { JwtAuthGuard } from '@/guards/jwt-auth.guard';
-import { CurrentUser } from '@/common/decorators/current-user.decorator';
 
 import { ChangePWDto } from './dto/change-pw-dto';
 import { UpdateProfileDto } from './dto/update-profile-dto';

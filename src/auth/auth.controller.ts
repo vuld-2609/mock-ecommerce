@@ -1,9 +1,9 @@
 import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 
+import { CurrentUser } from '@/common/decorators/current-user.decorator';
 import { JwtAuthGuard } from '@/guards/jwt-auth.guard';
 import { LocalAuthGuard } from '@/guards/local-auth.guard';
-import { CurrentUser } from '@/common/decorators/current-user.decorator';
 
 import { AuthService } from './auth.service';
 import { ForgotPasswordDto } from './dto/forgot-password-dto';
