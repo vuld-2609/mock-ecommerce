@@ -33,6 +33,10 @@
     "get_categories": "Lấy danh sách danh mục thành công",
     "create_category": "Tạo danh mục thành công",
     "update_category": "Cập nhật danh mục thành công",
-    "delete_category": "Xoá danh mục thành công"
+    "delete_category": "Xoá danh mục thành công",
+    "get_users": "Lấy danh sách người dùng thành công",
+    "get_products": "Lấy danh sách sản phẩm thành công",
+    "activate_user": "Mở khoá người dùng thành công",
+    "deactivate_user": "Khoá người dùng thành công"
   }
 }

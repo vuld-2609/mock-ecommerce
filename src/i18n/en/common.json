@@ -33,6 +33,10 @@
     "get_categories": "Categories retrieved successfully",
     "create_category": "Category created successfully",
     "update_category": "Category updated successfully",
-    "delete_category": "Category deleted successfully"
+    "delete_category": "Category deleted successfully",
+    "get_users": "Users retrieved successfully",
+    "get_products": "Products retrieved successfully",
+    "activate_user": "User activated successfully",
+    "deactivate_user": "User deactivated successfully"
   }
 }
