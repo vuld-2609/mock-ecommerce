@@ -11,7 +11,10 @@
     "user_not_found": "User not found",
     "registration_failed": "Registration failed, please try again",
     "invalid_refresh_token": "Refresh token is invalid or expired",
-    "invalid_reset_token": "Reset password link is invalid or expired"
+    "invalid_reset_token": "Reset password link is invalid or expired",
+    "invalid_image_type": "Only image files are accepted (jpg, jpeg, png, gif, webp)",
+    "invalid_old_password": "Old password is incorrect",
+    "same_password": "New password must be different from the old password"
   },
   "success": {
     "register": "Registration successful. Please check your email!",
@@ -20,6 +23,9 @@
     "logout": "Logout successful",
     "token_refreshed": "Token refreshed successfully",
     "forgot_password_generic": "If the email exists in our system, a password reset email has been sent",
-    "reset_password": "Password reset successful. Please login again!"
+    "reset_password": "Password reset successful. Please login again!",
+    "get_profile": "Profile retrieved successfully",
+    "update_profile": "Profile updated successfully",
+    "change_password": "Password changed successfully"
   }
 }

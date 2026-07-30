@@ -1,0 +1,14 @@
+model File {
+  id Int @id @default(autoincrement())
+  originalName String
+  fileName String
+  mimeType String
+  path String
+  size Int
+  fileableType String
+  fileableId Int
+  associationType String
+  createdAt DateTime @default(now())
+
+  @@index([fileableType, fileableId])
+}
