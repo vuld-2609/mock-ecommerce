@@ -1,6 +1,5 @@
 model File {
   id Int @id @default(autoincrement())
-  uuid String @default(uuid())
   originalName String
   fileName String
   mimeType String

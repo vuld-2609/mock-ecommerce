@@ -1,4 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
+import { File, User } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 import * as fs from 'fs';
 
@@ -30,28 +31,47 @@ export class ProfileService {
   }
 
   async updateProfile(userId: number, dto: UpdateProfileDto, file?: Express.Multer.File) {
+    let cleanupOldAvatar: (() => void) | undefined;
+    let user: User;
+    let avatarFile: File | null;
+
     try {
-      const user = await this.prismaService.user.update({
-        where: { id: userId },
-        data: {
-          ...dto,
-        },
-      });
+      ({ user, avatarFile } = await this.prismaService.$transaction(async (tx) => {
+        const user = await tx.user.update({
+          where: { id: userId },
+          data: {
+            ...dto,
+          },
+        });
 
-      const avatarFile = file
-        ? await this.fileService.replaceFile(file, 'USER', userId, 'avatar')
-        : await this.fileService.getFile('USER', userId);
+        if (!file) {
+          const avatarFile = await tx.file.findFirst({
+            where: { fileableType: 'USER', fileableId: userId },
+          });
+          return { user, avatarFile };
+        }
 
-      return {
-        message: t('common.success.update_profile'),
-        data: new ProfileResponseDto({ ...user, avatar: avatarFile ? avatarFile.path : null }),
-      };
+        const replaced = await this.fileService.replaceFile(tx, file, 'USER', userId, 'avatar');
+        cleanupOldAvatar = replaced.cleanup;
+        return { user, avatarFile: replaced.file };
+      }));
     } catch (error) {
       if (file && fs.existsSync(file.path)) {
         fs.unlinkSync(file.path);
       }
       throw error;
     }
+
+    try {
+      cleanupOldAvatar?.();
+    } catch (error) {
+      console.error(`Lỗi khi xoá avatar cũ của user ${userId}:`, error);
+    }
+
+    return {
+      message: t('common.success.update_profile'),
+      data: new ProfileResponseDto({ ...user, avatar: avatarFile ? avatarFile.path : null }),
+    };
   }
 
   async changePassword(userId: number, dto: ChangePWDto) {
