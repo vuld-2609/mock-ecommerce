@@ -8,5 +8,7 @@
   "token_required": "Token should not be empty",
   "refresh_token_required": "Refresh token should not be empty",
   "new_password_min_length": "New password must be at least {min} characters",
-  "old_password_required": "Old password should not be empty"
+  "old_password_required": "Old password should not be empty",
+  "category_name_required": "Category name should not be empty",
+  "category_description_required": "Category description should not be empty"
 }

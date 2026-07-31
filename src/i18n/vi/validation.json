@@ -8,5 +8,7 @@
   "token_required": "Token không được để trống",
   "refresh_token_required": "Refresh token không được để trống",
   "new_password_min_length": "Mật khẩu mới phải có ít nhất {min} ký tự",
-  "old_password_required": "Mật khẩu cũ không được để trống"
+  "old_password_required": "Mật khẩu cũ không được để trống",
+  "category_name_required": "Tên danh mục không được để trống",
+  "category_description_required": "Mô tả danh mục không được để trống"
 }

@@ -4,6 +4,7 @@
   "errors": {
     "invalid_credentials": "Invalid email or password",
     "unauthorized": "Unauthorized",
+    "forbidden": "You do not have permission to perform this action",
     "email_already_exists": "Email already exists",
     "invalid_token": "Invalid token",
     "token_expired": "Token has expired",
@@ -14,7 +15,9 @@
     "invalid_reset_token": "Reset password link is invalid or expired",
     "invalid_image_type": "Only image files are accepted (jpg, jpeg, png, gif, webp)",
     "invalid_old_password": "Old password is incorrect",
-    "same_password": "New password must be different from the old password"
+    "same_password": "New password must be different from the old password",
+    "category_not_found": "Category not found",
+    "category_name_exists": "Category name already exists"
   },
   "success": {
     "register": "Registration successful. Please check your email!",
@@ -26,6 +29,10 @@
     "reset_password": "Password reset successful. Please login again!",
     "get_profile": "Profile retrieved successfully",
     "update_profile": "Profile updated successfully",
-    "change_password": "Password changed successfully"
+    "change_password": "Password changed successfully",
+    "get_categories": "Categories retrieved successfully",
+    "create_category": "Category created successfully",
+    "update_category": "Category updated successfully",
+    "delete_category": "Category deleted successfully"
   }
 }
