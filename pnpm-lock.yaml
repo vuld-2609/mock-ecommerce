@@ -56,6 +56,9 @@ importers:
       ioredis:
         specifier: ^5.11.1
         version: 5.11.1
+      multer:
+        specifier: ^2.2.0
+        version: 2.2.0
       nestjs-i18n:
         specifier: ^10.8.5
         version: 10.8.5(@nestjs/common@11.1.28(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.28)(class-validator@0.15.1)(rxjs@7.8.2)

@@ -43,6 +43,7 @@
     "class-validator": "^0.15.1",
     "handlebars": "^4.7.9",
     "ioredis": "^5.11.1",
+    "multer": "^2.2.0",
     "nestjs-i18n": "^10.8.5",
     "nodemailer": "^9.0.3",
     "passport": "^0.7.0",

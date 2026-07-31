@@ -1,4 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
+import { File, User } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 import * as fs from 'fs';
 
@@ -31,9 +32,11 @@ export class ProfileService {
 
   async updateProfile(userId: number, dto: UpdateProfileDto, file?: Express.Multer.File) {
     let cleanupOldAvatar: (() => void) | undefined;
+    let user: User;
+    let avatarFile: File | null;
 
     try {
-      const { user, avatarFile } = await this.prismaService.$transaction(async (tx) => {
+      ({ user, avatarFile } = await this.prismaService.$transaction(async (tx) => {
         const user = await tx.user.update({
           where: { id: userId },
           data: {
@@ -51,20 +54,24 @@ export class ProfileService {
         const replaced = await this.fileService.replaceFile(tx, file, 'USER', userId, 'avatar');
         cleanupOldAvatar = replaced.cleanup;
         return { user, avatarFile: replaced.file };
-      });
-
-      cleanupOldAvatar?.();
-
-      return {
-        message: t('common.success.update_profile'),
-        data: new ProfileResponseDto({ ...user, avatar: avatarFile ? avatarFile.path : null }),
-      };
+      }));
     } catch (error) {
       if (file && fs.existsSync(file.path)) {
         fs.unlinkSync(file.path);
       }
       throw error;
     }
+
+    try {
+      cleanupOldAvatar?.();
+    } catch (error) {
+      console.error(`Lỗi khi xoá avatar cũ của user ${userId}:`, error);
+    }
+
+    return {
+      message: t('common.success.update_profile'),
+      data: new ProfileResponseDto({ ...user, avatar: avatarFile ? avatarFile.path : null }),
+    };
   }
 
   async changePassword(userId: number, dto: ChangePWDto) {
