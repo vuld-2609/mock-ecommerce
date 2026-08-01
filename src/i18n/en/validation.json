@@ -15,5 +15,7 @@
   "product_description_required": "Product description should not be empty",
   "product_price_invalid": "Product price must be a non-negative number",
   "product_stock_quantity_invalid": "Product stock quantity must be a non-negative integer",
-  "product_category_id_invalid": "Category id is invalid"
+  "product_category_id_invalid": "Category id is invalid",
+  "product_id_invalid": "Product id is invalid",
+  "quantity_invalid": "Quantity must be a positive integer"
 }

@@ -20,7 +20,9 @@
     "category_name_exists": "Category name already exists",
     "product_not_found": "Product not found",
     "product_name_exists": "A product with this name already exists",
-    "product_image_not_found": "Product image not found"
+    "product_image_not_found": "Product image not found",
+    "cart_item_not_found": "This product is not in your cart",
+    "insufficient_stock": "Not enough stock available for the requested quantity"
   },
   "success": {
     "register": "Registration successful. Please check your email!",
@@ -45,6 +47,11 @@
     "delete_product": "Product deleted successfully",
     "delete_product_image": "Product image deleted successfully",
     "activate_user": "User activated successfully",
-    "deactivate_user": "User deactivated successfully"
+    "deactivate_user": "User deactivated successfully",
+    "add_to_cart": "Product added to cart",
+    "update_cart": "Cart item quantity updated successfully",
+    "get_cart": "Cart retrieved successfully",
+    "remove_cart_item": "Product removed from cart",
+    "clear_cart": "Cart cleared successfully"
   }
 }

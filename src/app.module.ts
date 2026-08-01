@@ -6,6 +6,7 @@ import { AcceptLanguageResolver, I18nModule, QueryResolver } from 'nestjs-i18n';
 import * as path from 'path';
 
 import { AuthModule } from './auth/auth.module';
+import { CartModule } from './cart/cart.module';
 import { CategoriesModule } from './categories/categories.module';
 import { validateEnv } from './config/env.validation';
 import { MailModule } from './mail/mail.module';
@@ -51,6 +52,7 @@ import { UsersModule } from './users/users.module';
     CategoriesModule,
     UsersModule,
     ProductsModule,
+    CartModule,
   ],
 })
 export class AppModule {}

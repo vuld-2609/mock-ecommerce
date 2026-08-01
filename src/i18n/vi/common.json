@@ -20,7 +20,9 @@
     "category_name_exists": "Tên danh mục đã tồn tại",
     "product_not_found": "Không tìm thấy sản phẩm",
     "product_name_exists": "Tên sản phẩm đã tồn tại",
-    "product_image_not_found": "Không tìm thấy ảnh sản phẩm"
+    "product_image_not_found": "Không tìm thấy ảnh sản phẩm",
+    "cart_item_not_found": "Sản phẩm này không có trong giỏ hàng",
+    "insufficient_stock": "Số lượng tồn kho không đủ cho số lượng yêu cầu"
   },
   "success": {
     "register": "Đăng ký thành công. Vui lòng kiểm tra email!",
@@ -45,6 +47,11 @@
     "delete_product": "Xoá sản phẩm thành công",
     "delete_product_image": "Xoá ảnh sản phẩm thành công",
     "activate_user": "Mở khoá người dùng thành công",
-    "deactivate_user": "Khoá người dùng thành công"
+    "deactivate_user": "Khoá người dùng thành công",
+    "add_to_cart": "Đã thêm sản phẩm vào giỏ hàng",
+    "update_cart": "Cập nhật số lượng thành công",
+    "get_cart": "Lấy giỏ hàng thành công",
+    "remove_cart_item": "Đã xoá sản phẩm khỏi giỏ hàng",
+    "clear_cart": "Đã xoá toàn bộ giỏ hàng"
   }
 }
