@@ -45,3 +45,6 @@ export function createImageUploadOptions(
 
 export const AVATAR_UPLOAD_DIR = './uploads/avatars';
 export const multerOptions = createImageUploadOptions(AVATAR_UPLOAD_DIR, 'avatar');
+
+export const PRODUCT_UPLOAD_DIR = './uploads/products';
+export const productImageMulterOptions = createImageUploadOptions(PRODUCT_UPLOAD_DIR, 'product');

@@ -1,13 +1,11 @@
 import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
 
+import { isUniqueConstraintError } from '@/common/utils/prisma-error.util';
 import { PrismaService } from '@/prisma/prisma.service';
 import { t } from '@/utils/i18n.util';
 
 import { CategoryResponseDto } from './dto/category-response-dto';
 import { CreateCategoryDto } from './dto/create-category-dto';
-
-const PRISMA_UNIQUE_CONSTRAINT_ERROR_CODE = 'P2002';
 
 @Injectable()
 export class CategoriesService {
@@ -31,7 +29,9 @@ export class CategoriesService {
         data: new CategoryResponseDto(category),
       };
     } catch (error) {
-      this.assertNotDuplicateNameError(error);
+      if (isUniqueConstraintError(error)) {
+        throw new ConflictException(t('common.errors.category_name_exists'));
+      }
       throw error;
     }
   }
@@ -50,7 +50,9 @@ export class CategoriesService {
         data: new CategoryResponseDto(category),
       };
     } catch (error) {
-      this.assertNotDuplicateNameError(error);
+      if (isUniqueConstraintError(error)) {
+        throw new ConflictException(t('common.errors.category_name_exists'));
+      }
       throw error;
     }
   }
@@ -71,15 +73,5 @@ export class CategoriesService {
     }
 
     return category;
-  }
-
-  private assertNotDuplicateNameError(error: unknown): void {
-    const isDuplicateNameError =
-      error instanceof Prisma.PrismaClientKnownRequestError &&
-      error.code === PRISMA_UNIQUE_CONSTRAINT_ERROR_CODE;
-
-    if (isDuplicateNameError) {
-      throw new ConflictException(t('common.errors.category_name_exists'));
-    }
   }
 }

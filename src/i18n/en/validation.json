@@ -10,5 +10,10 @@
   "new_password_min_length": "New password must be at least {min} characters",
   "old_password_required": "Old password should not be empty",
   "category_name_required": "Category name should not be empty",
-  "category_description_required": "Category description should not be empty"
+  "category_description_required": "Category description should not be empty",
+  "product_name_required": "Product name should not be empty",
+  "product_description_required": "Product description should not be empty",
+  "product_price_invalid": "Product price must be a non-negative number",
+  "product_stock_quantity_invalid": "Product stock quantity must be a non-negative integer",
+  "product_category_id_invalid": "Category id is invalid"
 }

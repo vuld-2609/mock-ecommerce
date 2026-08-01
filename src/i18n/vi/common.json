@@ -17,7 +17,10 @@
     "invalid_old_password": "Mật khẩu cũ không đúng",
     "same_password": "Mật khẩu mới phải khác mật khẩu cũ",
     "category_not_found": "Không tìm thấy danh mục",
-    "category_name_exists": "Tên danh mục đã tồn tại"
+    "category_name_exists": "Tên danh mục đã tồn tại",
+    "product_not_found": "Không tìm thấy sản phẩm",
+    "product_name_exists": "Tên sản phẩm đã tồn tại",
+    "product_image_not_found": "Không tìm thấy ảnh sản phẩm"
   },
   "success": {
     "register": "Đăng ký thành công. Vui lòng kiểm tra email!",
@@ -36,6 +39,11 @@
     "delete_category": "Xoá danh mục thành công",
     "get_users": "Lấy danh sách người dùng thành công",
     "get_products": "Lấy danh sách sản phẩm thành công",
+    "get_product": "Lấy thông tin sản phẩm thành công",
+    "create_product": "Tạo sản phẩm thành công",
+    "update_product": "Cập nhật sản phẩm thành công",
+    "delete_product": "Xoá sản phẩm thành công",
+    "delete_product_image": "Xoá ảnh sản phẩm thành công",
     "activate_user": "Mở khoá người dùng thành công",
     "deactivate_user": "Khoá người dùng thành công"
   }

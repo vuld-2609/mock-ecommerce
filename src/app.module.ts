@@ -10,10 +10,10 @@ import { CategoriesModule } from './categories/categories.module';
 import { validateEnv } from './config/env.validation';
 import { MailModule } from './mail/mail.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { ProductsModule } from './products/products.module';
 import { ProfileModule } from './profile/profile.module';
 import { RedisModule } from './redis/redis.module';
 import { UsersModule } from './users/users.module';
-import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [

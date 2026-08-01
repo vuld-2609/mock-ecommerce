@@ -10,5 +10,10 @@
   "new_password_min_length": "Mật khẩu mới phải có ít nhất {min} ký tự",
   "old_password_required": "Mật khẩu cũ không được để trống",
   "category_name_required": "Tên danh mục không được để trống",
-  "category_description_required": "Mô tả danh mục không được để trống"
+  "category_description_required": "Mô tả danh mục không được để trống",
+  "product_name_required": "Tên sản phẩm không được để trống",
+  "product_description_required": "Mô tả sản phẩm không được để trống",
+  "product_price_invalid": "Giá sản phẩm phải là số không âm",
+  "product_stock_quantity_invalid": "Số lượng tồn kho phải là số nguyên không âm",
+  "product_category_id_invalid": "Category id không hợp lệ"
 }
