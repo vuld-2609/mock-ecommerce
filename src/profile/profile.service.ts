@@ -6,6 +6,7 @@ import * as fs from 'fs';
 import { AuthService } from '@/auth/auth.service';
 import { SafeUser } from '@/auth/types/authenticated-user.type';
 import { FileService } from '@/file/file.service';
+import { FileableType } from '@/file/fileable-type.constant';
 import { PrismaService } from '@/prisma/prisma.service';
 import { t } from '@/utils/i18n.util';
 
@@ -22,7 +23,7 @@ export class ProfileService {
   ) {}
 
   async getMe(user: SafeUser) {
-    const avatarFile = await this.fileService.getFile('USER', user.id);
+    const avatarFile = await this.fileService.getFile(FileableType.USER, user.id);
 
     return {
       message: t('common.success.get_profile'),
@@ -46,12 +47,18 @@ export class ProfileService {
 
         if (!file) {
           const avatarFile = await tx.file.findFirst({
-            where: { fileableType: 'USER', fileableId: userId },
+            where: { fileableType: FileableType.USER, fileableId: userId },
           });
           return { user, avatarFile };
         }
 
-        const replaced = await this.fileService.replaceFile(tx, file, 'USER', userId, 'avatar');
+        const replaced = await this.fileService.replaceFile(
+          tx,
+          file,
+          FileableType.USER,
+          userId,
+          'avatar',
+        );
         cleanupOldAvatar = replaced.cleanup;
         return { user, avatarFile: replaced.file };
       }));

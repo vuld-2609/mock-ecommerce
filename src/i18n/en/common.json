@@ -17,7 +17,10 @@
     "invalid_old_password": "Old password is incorrect",
     "same_password": "New password must be different from the old password",
     "category_not_found": "Category not found",
-    "category_name_exists": "Category name already exists"
+    "category_name_exists": "Category name already exists",
+    "product_not_found": "Product not found",
+    "product_name_exists": "A product with this name already exists",
+    "product_image_not_found": "Product image not found"
   },
   "success": {
     "register": "Registration successful. Please check your email!",
@@ -33,6 +36,15 @@
     "get_categories": "Categories retrieved successfully",
     "create_category": "Category created successfully",
     "update_category": "Category updated successfully",
-    "delete_category": "Category deleted successfully"
+    "delete_category": "Category deleted successfully",
+    "get_users": "Users retrieved successfully",
+    "get_products": "Products retrieved successfully",
+    "get_product": "Product retrieved successfully",
+    "create_product": "Product created successfully",
+    "update_product": "Product updated successfully",
+    "delete_product": "Product deleted successfully",
+    "delete_product_image": "Product image deleted successfully",
+    "activate_user": "User activated successfully",
+    "deactivate_user": "User deactivated successfully"
   }
 }
