@@ -3,7 +3,10 @@ import { File, Prisma, Product } from '@prisma/client';
 
 import { ImageAssociationType } from '@/common/constant';
 import { MetaDto } from '@/common/dto/meta-dto';
-import { isUniqueConstraintError } from '@/common/utils/prisma-error.util';
+import {
+  isForeignKeyConstraintError,
+  isUniqueConstraintError,
+} from '@/common/utils/prisma-error.util';
 import { slugify } from '@/common/utils/slugify.util';
 import { FileService } from '@/file/file.service';
 import { FileableType } from '@/file/fileable-type.constant';
@@ -201,12 +204,19 @@ export class ProductsService {
   async deleteProduct(id: number) {
     await this.findProductOrThrow(id);
 
-    const { cleanup } = await this.prismaService.$transaction(async (tx) => {
-      await tx.product.delete({ where: { id } });
-      return this.fileService.removeFilesByOwner(tx, FileableType.PRODUCT, id);
-    });
+    try {
+      const { cleanup } = await this.prismaService.$transaction(async (tx) => {
+        await tx.product.delete({ where: { id } });
+        return this.fileService.removeFilesByOwner(tx, FileableType.PRODUCT, id);
+      });
 
-    cleanup();
+      cleanup();
+    } catch (error) {
+      if (isForeignKeyConstraintError(error)) {
+        throw new ConflictException(t('common.errors.product_in_use'));
+      }
+      throw error;
+    }
 
     return { message: t('common.success.delete_product') };
   }

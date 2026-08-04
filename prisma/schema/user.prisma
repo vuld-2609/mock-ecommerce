@@ -15,6 +15,7 @@ model User {
   resetPasswordToken   String?        @unique
   resetPasswordExpires DateTime?
   refreshTokens        RefreshToken[]
+  orders               Order[]
   createdAt            DateTime       @default(now())
   updatedAt            DateTime       @updatedAt
 }
