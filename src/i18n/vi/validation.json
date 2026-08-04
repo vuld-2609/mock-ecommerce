@@ -15,5 +15,7 @@
   "product_description_required": "Mô tả sản phẩm không được để trống",
   "product_price_invalid": "Giá sản phẩm phải là số không âm",
   "product_stock_quantity_invalid": "Số lượng tồn kho phải là số nguyên không âm",
-  "product_category_id_invalid": "Category id không hợp lệ"
+  "product_category_id_invalid": "Category id không hợp lệ",
+  "product_id_invalid": "Product id không hợp lệ",
+  "quantity_invalid": "Số lượng phải là số nguyên dương"
 }

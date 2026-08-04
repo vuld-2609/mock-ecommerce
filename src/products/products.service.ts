@@ -215,7 +215,7 @@ export class ProductsService {
     return new ProductResponseDto(product, await this.getProductImages(product.id));
   }
 
-  private async getProductImages(productId: number) {
+  async getProductImages(productId: number) {
     const files = await this.fileService.getFiles(FileableType.PRODUCT, productId);
     const thumbnailFile = files.find(
       (file) => file.associationType === ImageAssociationType.THUMBNAIL,
