@@ -10,6 +10,7 @@ import { CartModule } from './cart/cart.module';
 import { CategoriesModule } from './categories/categories.module';
 import { validateEnv } from './config/env.validation';
 import { MailModule } from './mail/mail.module';
+import { OrderModule } from './order/order.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { ProductsModule } from './products/products.module';
 import { ProfileModule } from './profile/profile.module';
@@ -53,6 +54,7 @@ import { UsersModule } from './users/users.module';
     UsersModule,
     ProductsModule,
     CartModule,
+    OrderModule,
   ],
 })
 export class AppModule {}

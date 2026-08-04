@@ -17,5 +17,6 @@
   "product_stock_quantity_invalid": "Product stock quantity must be a non-negative integer",
   "product_category_id_invalid": "Category id is invalid",
   "product_id_invalid": "Product id is invalid",
-  "quantity_invalid": "Quantity must be a positive integer"
+  "quantity_invalid": "Quantity must be a positive integer",
+  "order_status_invalid": "Order status is invalid"
 }

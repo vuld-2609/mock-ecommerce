@@ -1,0 +1,22 @@
+enum OrderStatus {
+  PENDING
+  PAID
+  SHIPPED
+  COMPLETED
+  CANCELLED
+}
+
+model Order {
+  id          Int         @id @default(autoincrement())
+  userId      Int
+  user        User        @relation(fields: [userId], references: [id], onDelete: Restrict)
+  orderItems  OrderItem[]
+  totalAmount Decimal     @db.Decimal(12, 2)
+  status      OrderStatus @default(PENDING)
+  orderCode   String      @unique
+  rejectReason String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@index([userId])
+}

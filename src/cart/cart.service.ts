@@ -6,7 +6,7 @@ import { ProductsService } from '@/products/products.service';
 import { RedisService } from '@/redis/redis.service';
 import { t } from '@/utils/i18n.util';
 
-interface CartItem {
+export interface CartItem {
   productId: number;
   quantity: number;
 }
@@ -113,6 +113,10 @@ export class CartService {
     await this.redisService.del(this.getCartKey(userId));
 
     return { message: t('common.success.clear_cart') };
+  }
+
+  async getCartItemsForCheckout(userId: number): Promise<CartItem[]> {
+    return this.getCartItems(this.getCartKey(userId));
   }
 
   private getCartKey(userId: number): string {

@@ -17,5 +17,6 @@
   "product_stock_quantity_invalid": "Số lượng tồn kho phải là số nguyên không âm",
   "product_category_id_invalid": "Category id không hợp lệ",
   "product_id_invalid": "Product id không hợp lệ",
-  "quantity_invalid": "Số lượng phải là số nguyên dương"
+  "quantity_invalid": "Số lượng phải là số nguyên dương",
+  "order_status_invalid": "Trạng thái đơn hàng không hợp lệ"
 }

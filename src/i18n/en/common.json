@@ -22,7 +22,11 @@
     "product_name_exists": "A product with this name already exists",
     "product_image_not_found": "Product image not found",
     "cart_item_not_found": "This product is not in your cart",
-    "insufficient_stock": "Not enough stock available for the requested quantity"
+    "insufficient_stock": "Not enough stock available for the requested quantity",
+    "cart_empty": "Your cart is empty",
+    "product_in_use": "This product cannot be deleted because it is referenced by existing orders",
+    "order_not_found": "Order not found",
+    "order_cannot_be_cancelled": "Only pending orders can be cancelled"
   },
   "success": {
     "register": "Registration successful. Please check your email!",
@@ -52,6 +56,11 @@
     "update_cart": "Cart item quantity updated successfully",
     "get_cart": "Cart retrieved successfully",
     "remove_cart_item": "Product removed from cart",
-    "clear_cart": "Cart cleared successfully"
+    "clear_cart": "Cart cleared successfully",
+    "create_order": "Order created successfully",
+    "get_orders": "Orders retrieved successfully",
+    "get_order_detail": "Order detail retrieved successfully",
+    "cancel_order": "Order cancelled successfully",
+    "update_order_status": "Order status updated successfully"
   }
 }
