@@ -15,7 +15,7 @@ COPY . .
 RUN pnpm exec prisma generate --schema=prisma/schema
 RUN pnpm build
 
-RUN pnpm install --prod --frozen-lockfile
+RUN pnpm install --prod --frozen-lockfile --ignore-scripts
 
 # ---- Runtime stage ----
 FROM node:20-slim AS runtime
