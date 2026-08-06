@@ -20,6 +20,7 @@ RUN pnpm install --prod --frozen-lockfile --ignore-scripts
 # ---- Runtime stage ----
 FROM node:20-slim AS runtime
 
+RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
 RUN corepack enable && corepack prepare pnpm@10.25.0 --activate
 
 WORKDIR /app
