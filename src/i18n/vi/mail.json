@@ -15,5 +15,13 @@
     "body": "Chúng tôi nhận được yêu cầu đặt lại mật khẩu cho tài khoản {appName} của bạn. Bấm nút bên dưới để tạo mật khẩu mới.",
     "button": "Đặt lại mật khẩu",
     "expiry": "Liên kết này sẽ hết hạn sau 15 phút."
+  },
+  "monthly_report": {
+    "subject": "Báo cáo kinh doanh tháng {month}/{year} - {appName}",
+    "heading": "Báo cáo kinh doanh tháng {month}/{year}",
+    "body": "Dưới đây là báo cáo tổng hợp kinh doanh của {appName} trong tháng {month}/{year}.",
+    "total_orders": "Tổng số đơn hàng hoàn thành",
+    "total_revenue": "Tổng doanh thu (VNĐ)",
+    "top_products": "Top sản phẩm bán chạy"
   }
 }

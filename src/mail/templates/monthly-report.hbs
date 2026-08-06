@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="{{lang}}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{heading}}</title>
+    {{> styles}}
+  </head>
+  <body>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="wrapper">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="480" cellpadding="0" cellspacing="0" class="card">
+            {{> header}}
+            <tr>
+              <td class="content">
+                <h1 class="heading">{{heading}}</h1>
+                <p class="greeting">{{greeting}}</p>
+                <p class="body-text">{{body}}</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin: 16px 0;">
+                  <tr>
+                    <td class="body-text">{{totalOrdersLabel}}</td>
+                    <td class="body-text" align="right"><strong>{{totalOrders}}</strong></td>
+                  </tr>
+                  <tr>
+                    <td class="body-text">{{totalRevenueLabel}}</td>
+                    <td class="body-text" align="right"><strong>{{totalRevenue}}</strong></td>
+                  </tr>
+                </table>
+                <p class="body-text"><strong>{{topProductsLabel}}</strong></p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  {{#each topProducts}}
+                    <tr>
+                      <td class="body-text">{{productName}}</td>
+                      <td class="body-text" align="right">{{totalSold}}</td>
+                    </tr>
+                  {{/each}}
+                </table>
+              </td>
+            </tr>
+            {{> footer}}
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
