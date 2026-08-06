@@ -40,7 +40,7 @@ import { UsersModule } from './users/users.module';
       fallbackLanguage: 'vi',
       loaderOptions: {
         path: path.join(__dirname, '/i18n/'),
-        watch: true,
+        watch: process.env.NODE_ENV !== 'production',
       },
       resolvers: [new QueryResolver(['lang']), AcceptLanguageResolver],
     }),
