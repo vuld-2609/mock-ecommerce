@@ -10,6 +10,21 @@ interface MailJobData {
   lang?: string;
 }
 
+interface TopProduct {
+  productName: string;
+  totalSold: number;
+}
+
+interface MonthlyReportMailJobData {
+  email: string;
+  month: number;
+  year: number;
+  totalOrders: number;
+  totalRevenue: number;
+  topProducts: TopProduct[];
+  lang?: string;
+}
+
 @Processor('mail-queue')
 export class MailProcessor {
   constructor(
@@ -86,6 +101,38 @@ export class MailProcessor {
       console.log(`[Queue] Đã gửi mail reset password tới: ${email}`);
     } catch (error) {
       console.error(`[Queue] Lỗi gửi mail reset password:`, error);
+      throw error;
+    }
+  }
+
+  @Process('send-monthly-report-email')
+  async handleSendMonthlyReportEmail(job: Job<MonthlyReportMailJobData>) {
+    const { email, month, year, totalOrders, totalRevenue, topProducts, lang } = job.data;
+    const args = { appName: this.appName, month, year };
+
+    try {
+      await this.mailerService.sendMail({
+        to: email,
+        subject: this.i18n.t('mail.monthly_report.subject', { lang, args }),
+        template: './monthly-report',
+        context: {
+          lang,
+          appName: this.appName,
+          heading: this.i18n.t('mail.monthly_report.heading', { lang, args }),
+          greeting: this.i18n.t('mail.greeting', { lang }),
+          body: this.i18n.t('mail.monthly_report.body', { lang, args }),
+          totalOrdersLabel: this.i18n.t('mail.monthly_report.total_orders', { lang }),
+          totalRevenueLabel: this.i18n.t('mail.monthly_report.total_revenue', { lang }),
+          topProductsLabel: this.i18n.t('mail.monthly_report.top_products', { lang }),
+          totalOrders,
+          totalRevenue: totalRevenue.toLocaleString('vi-VN'),
+          topProducts,
+          ...this.buildFooterContext(lang),
+        },
+      });
+      console.log(`[Queue] Đã gửi mail báo cáo tháng ${month}/${year} tới: ${email}`);
+    } catch (error) {
+      console.error(`[Queue] Lỗi gửi mail báo cáo tháng:`, error);
       throw error;
     }
   }

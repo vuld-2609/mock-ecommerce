@@ -1,10 +1,12 @@
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ScheduleModule } from '@nestjs/schedule';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { AcceptLanguageResolver, I18nModule, QueryResolver } from 'nestjs-i18n';
 import * as path from 'path';
 
+import { AnalyticsModule } from './analytics/analytics.module';
 import { AuthModule } from './auth/auth.module';
 import { CartModule } from './cart/cart.module';
 import { CategoriesModule } from './categories/categories.module';
@@ -16,7 +18,6 @@ import { ProductsModule } from './products/products.module';
 import { ProfileModule } from './profile/profile.module';
 import { RedisModule } from './redis/redis.module';
 import { UsersModule } from './users/users.module';
-
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -45,6 +46,7 @@ import { UsersModule } from './users/users.module';
       rootPath: path.join(__dirname, '..', 'uploads'),
       serveRoot: '/uploads',
     }),
+    ScheduleModule.forRoot(),
     PrismaModule,
     RedisModule,
     AuthModule,
@@ -55,6 +57,7 @@ import { UsersModule } from './users/users.module';
     ProductsModule,
     CartModule,
     OrderModule,
+    AnalyticsModule,
   ],
 })
 export class AppModule {}

@@ -15,5 +15,13 @@
     "body": "We received a request to reset the password for your {appName} account. Click the button below to set a new password.",
     "button": "Reset password",
     "expiry": "This link will expire in 15 minutes."
+  },
+  "monthly_report": {
+    "subject": "Monthly business report {month}/{year} - {appName}",
+    "heading": "Monthly business report {month}/{year}",
+    "body": "Here is the business summary for {appName} in {month}/{year}.",
+    "total_orders": "Total completed orders",
+    "total_revenue": "Total revenue (VND)",
+    "top_products": "Top selling products"
   }
 }
