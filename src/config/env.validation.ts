@@ -13,6 +13,14 @@ class EnvironmentVariables {
   @Max(65535)
   REDIS_PORT: number;
 
+  @IsOptional()
+  @IsString()
+  REDIS_PASSWORD?: string;
+
+  @IsOptional()
+  @IsString()
+  REDIS_TLS?: string;
+
   @IsInt()
   @Min(1)
   @Max(65535)

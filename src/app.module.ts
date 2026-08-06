@@ -31,6 +31,8 @@ import { UsersModule } from './users/users.module';
         redis: {
           host: config.getOrThrow('REDIS_HOST'),
           port: config.getOrThrow('REDIS_PORT'),
+          password: config.get<string>('REDIS_PASSWORD') || undefined,
+          tls: config.get<string>('REDIS_TLS') === 'true' ? {} : undefined,
         },
       }),
     }),

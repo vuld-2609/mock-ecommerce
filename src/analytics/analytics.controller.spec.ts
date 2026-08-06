@@ -5,6 +5,7 @@ import { ProductsService } from '@/products/products.service';
 
 import { AnalyticsController } from './analytics.controller';
 import { AnalyticsService } from './analytics.service';
+import { MonthlyReportScheduler } from './monthly-report.scheduler';
 
 describe('AnalyticsController', () => {
   let controller: AnalyticsController;
@@ -16,6 +17,7 @@ describe('AnalyticsController', () => {
         AnalyticsService,
         { provide: PrismaService, useValue: {} },
         { provide: ProductsService, useValue: {} },
+        { provide: MonthlyReportScheduler, useValue: {} },
       ],
     }).compile();
 

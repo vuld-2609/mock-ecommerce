@@ -16,6 +16,8 @@ import { RedisService } from './redis.service';
         new Redis({
           host: config.get<string>('REDIS_HOST'),
           port: config.get<number>('REDIS_PORT'),
+          password: config.get<string>('REDIS_PASSWORD') || undefined,
+          tls: config.get<string>('REDIS_TLS') === 'true' ? {} : undefined,
         }),
     },
     RedisService,
